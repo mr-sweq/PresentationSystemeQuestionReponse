@@ -1,0 +1,13 @@
+.console {
+  max-height: 100vh;
+  color: whitesmoke;
+}
+
+.console-container {
+  height: calc(100vh - 35px);
+  overflow-y: auto;
+}
+
+.console-container > div {
+  padding: 25px 50px;
+}

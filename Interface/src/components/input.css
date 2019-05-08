@@ -1,0 +1,13 @@
+.console-input input {
+  color: whitesmoke;
+  background-color: black;
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  padding: 10px 15px;
+  line-height: 15px;
+}
+
+.console-input input:focus {
+outline: none;
+}

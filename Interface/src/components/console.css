@@ -1,0 +1,20 @@
+.block > div {
+  margin-bottom: 15px;
+  max-width: 75%;
+  border-radius: 10px;
+  padding: 15px;
+  display: inline-block;
+}
+
+.block.usr {
+  text-align: right;
+}
+.block.usr > div {
+  background-color: rgb(90,90,90);
+  border-bottom-right-radius: 0;
+}
+
+.block.komp > div {
+  background-color: rgb(60,60,60);
+  border-bottom-left-radius: 0;
+}
