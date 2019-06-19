@@ -1,11 +1,24 @@
+.console-input .caret {
+  float: left;
+  background-color: black;
+  height: 100%;
+  width: 0;
+  padding: 10px 15px;
+  line-height: 25px;
+}
+
 .console-input input {
+  float: right;
   color: whitesmoke;
   background-color: black;
   box-sizing: border-box;
-  width: 100%;
+  width: calc(100% - 30px);
   border: none;
   padding: 10px 15px;
-  line-height: 15px;
+  line-height: 25px;
+}
+.console-input input::placeholder {
+  color: grey;
 }
 
 .console-input input:focus {

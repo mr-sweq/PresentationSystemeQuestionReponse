@@ -11,22 +11,25 @@ export default class Segment extends React.Component {
 
 	componentDidUpdate(){
 		this.ref.current.scrollIntoView({behavior:'smooth', block:"end"});
-	}
+  }
+  
   componentDidMount(){
-    
     fetch(`/Question?Question=${this.props.search}`)
-      .then(r => { 
-        if(r.ok){
-			//return r.text(); 
-			return r.json();
-		}
-        else { throw new Error(r.statusText); }
-      }).then(d => this.setState({results: d}))
-      .catch(err => console.error(err));
+    .then(r => { 
+      if(r.ok){
+        return r.json();
+      }
+      else { throw new Error(r.statusText); }
+    }).then(d => this.setState({results: d}))
+    .catch(err => console.error(err));
       
-/*
+    /*
     setTimeout(() => {
-	  this.setState({results: [{title: "Hello! My name is Sweq, how may I help you? Ask me anything! I know many thing."}]});
+	  this.setState({results: [
+      {score:"100", sentence:"Hello! My name is Sweq, how may I help you? Ask me anything! I know many thing."},
+      {score:"100", sentence:"Hello! My name is Sweq, how may I help you? Ask me anything! I know many thing."},
+      {score:"100", sentence:"Hello! My name is Sweq, how may I help you? Ask me anything! I know many thing."}
+    ]});
     }, 1000);
    */
   }
@@ -35,7 +38,6 @@ export default class Segment extends React.Component {
     <div ref={this.ref}>
       <BlockUsr text={this.props.search}/>
       {this.state.results ? (
-		//<BlockKomp content={this.state.results}/>
         this.state.results.map((item, i) => <BlockKomp key={i} content={item}/>)
       ):(
         <BlockSearching/>
@@ -52,11 +54,11 @@ const BlockUsr = ({text}) => (
 
 class BlockKomp extends React.Component {	
 	render(){
+    console.log(this.props.content);
 		return (
 
   <div className="block komp">
     <div>
-		<div>{this.props.content.score}</div>
 		<div>{this.props.content.sentence}</div>
 	</div>
   </div>);	

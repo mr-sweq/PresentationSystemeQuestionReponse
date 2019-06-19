@@ -5,12 +5,20 @@ import './App.css';
 import ConsoleSegment from './components/console';
 import ConsoleInput from './components/input';
 
+import ModalInfo from './components/modal';
+
+import $ from 'jquery';
+
 class App extends Component {
 
   state = {
-    searches: ["Bonjour!"]
+    searches: []
   }
-  
+
+  componentDidMount(){
+    $("#modalInfo").modal("show");
+  }
+
   addQuery = (value) => {
     let searches = this.state.searches;
     searches.push(value);
@@ -26,6 +34,7 @@ class App extends Component {
           </div>
         </div>
         <ConsoleInput sendQuery={this.addQuery}/>
+        <ModalInfo id="modalInfo"/>
       </div>
     );
   }
